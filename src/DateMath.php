@@ -1,5 +1,12 @@
 <?php
-
+/**
+ * DateMath.php
+ * DateMath helps in date manipulation
+ * 
+ * Copyright: Shuja Shabandri
+ * http://dollarthis.com
+ *
+ */
 class DateMath {
 	private $dateTime = null;
 
