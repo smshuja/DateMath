@@ -3,13 +3,12 @@
 
 <h2>Usage</h2>
 
-<pre>
-	<code>
-		$myDate = new DateMath('2011-01-01'); 
-		$myDate->addMonths(2)->addDays(3)->firstDayOfWeek();
-		echo $myDate->toString('Y-m-d');	
-	</code>
-</pre>
+<pre><code>
+$myDate = new DateMath('2011-01-01'); 		$myDate->addMonths(2)
+	   ->addDays(3)
+	   ->firstDayOfWeek();
+echo $myDate->toString('Y-m-d');	
+</code></pre>
 
 <h3>Methods</h3>
 <ul>
