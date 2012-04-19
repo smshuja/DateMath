@@ -18,6 +18,20 @@ class DateMath {
 		}
 		$this->dateTime = $dateTime;
 	}
+	
+	public static function getInstance($dateTime = null) {
+		return new self($dateTime);
+	}
+	
+	public function resetTime() {
+		$this->dateTime -= ($this->dateTime - strtotime(date('Y-m-d 00:00:00', $this->dateTime)));
+		return $this;
+	}
+
+	public function endTime() {
+		$this->dateTime -= ($this->dateTime - strtotime(date('Y-m-d 23:59:59', $this->dateTime)));
+		return $this;
+	}
 
 	public function addSeconds($num) {
 		$this->dateTime += $num;
@@ -55,17 +69,18 @@ class DateMath {
 	}
 
 	public function firstDayOfWeek() {
-		$this->dateTime = strtotime('-'.(gmdate('N', $this->dateTime)-1).' days', $this->dateTime);
+		$this->dateTime = strtotime('-'.(date('N', $this->dateTime)-1).' days', $this->dateTime);
 		return $this;
 	}
 	
 	public function firstDayOfMonth() {
-		$this->dateTime = strtotime(gmdate('Y-m-01 H:i:s +0000', $this->dateTime));
+		$this->dateTime = strtotime('-'.(date('j', $this->dateTime)-1).' days', $this->dateTime);
 		return $this;
 	}
 	
 	public function lastDayOfMonth() {
-		return $this->firstDayOfMonth()->addMonths(1)->addDays(-1);
+		$this->firstDayOfMonth()->addMonths(1)->addDays(-1);
+		return $this;
 	}
 	
 	public function lastDayOfWeek() {
