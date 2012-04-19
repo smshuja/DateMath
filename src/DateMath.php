@@ -51,19 +51,19 @@ class DateMath {
 	}
 
 	public function addMonths($num) {
-		$num = ($num < 0 ? '' : '+').$num;
+		$num = ($num < 0 ? '-' : '+').abs($num);
 		$this->dateTime = strtotime($num.' months', $this->dateTime);
 		return $this;
 	}
 
 	public function addYears($num) {
-		$num = ($num < 0 ? '' : '+').$num;
+		$num = ($num < 0 ? '-' : '+').abs($num);
 		$this->dateTime = strtotime($num.' years', $this->dateTime);
 		return $this;
 	}
 
 	public function addWeeks($num) {
-		$num = ($num < 0 ? '' : '+').$num;
+$num = ($num < 0 ? '-' : '+').abs($num);
 		$this->dateTime = strtotime($num.' weeks', $this->dateTime);
 		return $this;
 	}
